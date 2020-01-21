@@ -13,7 +13,7 @@ total_votes = 0
 
 #open and read the csv file
 with open(election_data, newline = "") as csvfile:
-    csvreader = csv.reader(csvfile, delimter = ",")
+    csvreader = csv.reader(csvfile, delimiter = ",")
     csv_header = next(csvreader)
 
     #go though and add to vote counter
@@ -21,10 +21,10 @@ with open(election_data, newline = "") as csvfile:
         total_votes += 1
 
     #add candiadte to list if not their and add votes
-        if row [2] not in candidates
+        if row [2] not in candidates:
             candidates.append(row[2])
             index = candidates.index(row[2])
-            num_votes.append[1]
+            num_votes.append(1)
         else:
             index = candidates.index(row[2])
             num_votes[index] +=1
@@ -43,7 +43,6 @@ with open(election_data, newline = "") as csvfile:
 
 #print results
 print("Election Results")
-print("-") * 80
 print(f"Total Votes: {str(total_votes)}")
 for i in range(len(candidates)):
     print(f"{candidates[1]}: {str(percent_votes[i])} ({str(num_votes[i])})")
@@ -52,6 +51,5 @@ print(f"Winner: {winning_candidate}")
 #export to txt file
 output = open("output.txt", "w")
 line1 = "Election Results"
-line2 = "-" * 80
-line3 = str(f"Total Votes: {str(total_votes)}")
-line4 = str(f"Winner: {winning_candidate}")
+line2 = str(f"Total Votes: {str(total_votes)}")
+line3 = str(f"Winner: {winning_candidate}")
